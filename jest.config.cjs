@@ -6,6 +6,7 @@ module.exports = {
     'vue'
   ],
   transform: {
+    '^.+\\.ts$': 'ts-jest',
     // 处理 js 文件以支持 ES6+ 语法
     '^.+\\.js$': 'babel-jest',
     // 使用 @vue/vue3-jest 来处理 *.vue 文件

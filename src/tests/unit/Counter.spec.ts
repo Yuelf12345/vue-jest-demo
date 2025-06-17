@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Counter from '@/components/Counter.vue';
+import Counter from '@/components/Counter.tsx';
 
 describe('Counter.vue', () => {
   it('emits an event when clicked', () => {

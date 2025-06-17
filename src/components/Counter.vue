@@ -17,3 +17,4 @@ const handleClick = () => {
 <template>
   <button @click="handleClick">Increment</button>
 </template>
+  

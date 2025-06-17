@@ -1,6 +1,6 @@
 <template>
   <form @submit.prevent="handleSubmit">
-    <input type="email" v-model="formData.email" placeholder="Email" />
+    <input type="email" v-model="formData.email" placeholder="Email" @blur="handleBlur" />
     <input type="password" v-model="formData.password" placeholder="Password" />
     <button type="submit">Submit</button>
   </form>
@@ -16,9 +16,17 @@ const formData = ref({
 
 const emit = defineEmits<{
   (e: "submit", data: { email: string; password: string }): void;
+  (e: "focus-lost"): void;
 }>();
 const handleSubmit = () => {
   emit("submit", formData.value);
+};
+
+const handleBlur = (event: FocusEvent) => {
+  const relatedTarget = event.relatedTarget as Element | null;
+  if (relatedTarget?.tagName === "BUTTON") {
+    emit("focus-lost");
+  }
 };
 </script>
 

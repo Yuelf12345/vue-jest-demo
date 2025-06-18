@@ -4,8 +4,8 @@ module.exports = {
     ['@babel/preset-env', { targets: { node: 'current' } }],
     '@babel/preset-typescript',
     ['@vue/babel-preset-jsx', {
-      compositionAPI: true, // 针对 Vue 3 的 setup 语法
-       injectH: false
+      compositionAPI: 'auto', // 自动处理组合式API
+      injectH: false
     }]
   ]
 };

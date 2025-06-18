@@ -13,7 +13,20 @@ module.exports = {
     '^.+\\.js$': 'babel-jest',
     // 使用 @vue/vue3-jest 来处理 *.vue 文件
     '.*\\.(vue)$': '@vue/vue3-jest',
-    '^.+\\.tsx?$': 'ts-jest' // 需要 ts-jest 处理 TypeScript
+     '^.+\\.tsx?$': [
+      'ts-jest', 
+      {
+        babelConfig: {
+          presets: [
+            ['@babel/preset-env', { targets: { node: 'current' } }],
+            '@babel/preset-typescript',
+            ['@vue/babel-preset-jsx', {
+              injectH: false // 关闭自动注入h函数
+            }]
+          ]
+        }
+      }
+    ],
   },
   transformIgnorePatterns: [
     '/node_modules/'

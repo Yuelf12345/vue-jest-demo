@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils';
 import Counter from '@/components/Counter.tsx';
+import { describe, it, expect } from '@jest/globals'
 
 describe('Counter.vue', () => {
   it('emits an event when clicked', () => {
@@ -22,14 +23,16 @@ describe('Counter.vue', () => {
     console.log('incrementEvent', incrementEvent);
     // 我们“点击”了两次，所以 `increment` 的数组应该有两个值。
     expect(incrementEvent).toHaveLength(2)
+
+    const events = incrementEvent! as Array<[{ count: number; isEven: boolean }]>
     // 断言第一次点击的结果。
     // 注意，值是一个数组。
-    expect(incrementEvent[0]).toEqual([{
+    expect(events[0]).toEqual([{
       count: 1,
       isEven: false
     }])
     // 然后是第二次的结果。
-    expect(incrementEvent[1]).toEqual([{
+    expect(events[1]).toEqual([{
       count: 2,
       isEven: true
     }])

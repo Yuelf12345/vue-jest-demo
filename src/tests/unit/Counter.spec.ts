@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Counter from '@/components/Counter.tsx';
+import Counter from '@/components/Counter';
 import { describe, it, expect } from '@jest/globals'
 
 describe('Counter.vue', () => {
